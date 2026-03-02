@@ -381,7 +381,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
     return (
         <div
-            className={`sm-scope z-40 ${isFixed ? 'fixed top-0 left-0 w-screen h-screen overflow-hidden' : 'w-full h-full'}`}
+            className={`sm-scope z-40 pointer-events-none ${isFixed ? 'fixed top-0 left-0 w-screen h-screen overflow-hidden' : 'w-full h-full'}`}
         >
             <div
                 className={
@@ -476,8 +476,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 <aside
                     id="staggered-menu-panel"
                     ref={panelRef}
-                    className="staggered-menu-panel absolute top-0 right-0 h-full bg-black/95 flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-[12px] pointer-events-auto"
-                    style={{ WebkitBackdropFilter: 'blur(12px)' }}
+                    className="staggered-menu-panel absolute top-0 right-0 h-full bg-black/95 flex flex-col p-[6em_2em_2em_2em] overflow-y-auto z-10 backdrop-blur-[12px]"
+                    style={{ WebkitBackdropFilter: 'blur(12px)', pointerEvents: open ? 'auto' : 'none' }}
                     aria-hidden={!open}
                 >
                     <div className="sm-panel-inner flex-1 flex flex-col gap-5">
