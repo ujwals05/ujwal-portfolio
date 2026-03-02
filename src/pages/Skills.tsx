@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code2, Database, Layout, Smartphone, Terminal, Cpu, Globe, Rocket } from "lucide-react";
+import { Code2, Database, Layout,  Terminal, Cpu } from "lucide-react";
 import InfiniteMarquee from "../components/animations/InfiniteMarquee";
 
 const skillCategories = [
