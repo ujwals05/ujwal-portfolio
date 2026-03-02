@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "../components/ui/button";
-import { Mail, Github, Twitter, Linkedin, Send, MessageSquare } from "lucide-react";
+import { Mail, Github, Twitter, Linkedin, Send, MessageSquare, Phone } from "lucide-react";
 
 export default function Contact() {
     return (
@@ -29,11 +29,21 @@ export default function Contact() {
 
                         <div className="flex items-center gap-4 group cursor-pointer">
                             <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 group-hover:bg-secondary/20 group-hover:border-secondary/50 transition-all">
-                                <MessageSquare className="h-5 w-5 text-secondary" />
+                                <Phone className="h-5 w-5 text-secondary" />
+                            </div>
+                            <div>
+                                <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Call Me</p>
+                                <p className="text-lg font-medium text-white group-hover:text-secondary transition-colors">9448880740</p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-4 group cursor-pointer">
+                            <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 group-hover:bg-primary/20 group-hover:border-primary/50 transition-all">
+                                <MessageSquare className="h-5 w-5 text-primary" />
                             </div>
                             <div>
                                 <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground">Discord</p>
-                                <p className="text-lg font-medium text-white group-hover:text-secondary transition-colors">/</p>
+                                <p className="text-lg font-medium text-white group-hover:text-primary transition-colors">/</p>
                             </div>
                         </div>
                     </div>
@@ -83,8 +93,11 @@ export default function Contact() {
                             <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground ml-1">Your Message</label>
                             <textarea rows={5} placeholder="Tell me more about your project..." className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder-muted-foreground outline-none focus:border-primary/50 focus:bg-white/10 transition-all resize-none" />
                         </div>
-                        <Button className="w-full rounded-2xl bg-primary text-black font-bold h-12 hover:scale-[1.02] transition-transform">
-                            SEND MESSAGE <Send className="ml-2 h-4 w-4" />
+                        <Button
+                            disabled
+                            className="w-full rounded-2xl bg-white/10 text-white/40 font-bold h-12 cursor-not-allowed border border-white/5"
+                        >
+                            MESSAGE SYSTEM OFFLINE <Send className="ml-2 h-4 w-4 opacity-50" />
                         </Button>
                     </form>
                 </motion.div>

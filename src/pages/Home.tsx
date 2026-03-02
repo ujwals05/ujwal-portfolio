@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import RotatingText from "../components/animations/RotatingText";
 import InfiniteMarquee from "../components/animations/InfiniteMarquee";
 import { useState, useEffect } from "react";
+import TiltedCard from "../components/animations/TiltedCard";
 const heroImage = "/hero/ujwal_photo.png";
 
 const ProjectImageSlider = ({ images }: { images: string[] }) => {
@@ -46,6 +47,7 @@ export default function Home() {
             title: "Sri Sai College",
             type: "Freelancing Project",
             desc: "This is a freelancing project built for Sri Sai College for Women, Bangalore.",
+            note: "Pictures used for demo; original pictures will be uploaded upon client delivery.",
             link: "https://sai-college.vercel.app",
             images: [
                 "/projects/sri-sai-college/sai-1.jpeg",
@@ -64,9 +66,10 @@ export default function Home() {
             ]
         },
         {
-            title: "Neural Hub",
-            desc: "Task management driven by AI scaling algorithms.",
-            link: "#",
+            title: "More on GitHub",
+            type: "Open Source",
+            desc: "Explore my full archive of digital architectures, including microservices, backend engines, and experimental UI modules.",
+            link: "https://github.com/ujwals05",
             images: []
         }
     ];
@@ -94,11 +97,30 @@ export default function Home() {
                             <div className="absolute inset-0 bg-gradient-to-tr from-[#903749] via-[#ff2e63] to-transparent rounded-full opacity-30 blur-3xl animate-pulse" />
 
                             {/* The Circle Image Container (FIXED) */}
-                            <div className="relative w-full rounded-2xl border border-white/10 overflow-hidden bg-[#1a1a1a]/50 backdrop-blur-sm shadow-[0_0_50px_rgba(255,46,99,0.15)]">
-                                <img
-                                    src={heroImage}
-                                    alt="Ujwal Tauren"
-                                    className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                            <div className="relative w-full aspect-square rounded-2xl border border-white/10 bg-[#1a1a1a]/50 backdrop-blur-sm shadow-[0_0_50px_rgba(255,46,99,0.15)] z-10 transition-colors hover:border-[#ff2e63]/30">
+                                <TiltedCard
+                                    imageSrc={heroImage}
+                                    altText="Ujwal S - cook"
+                                    captionText="Ujwal S - cook.exe"
+                                    containerHeight="100%"
+                                    containerWidth="100%"
+                                    imageHeight="100%"
+                                    imageWidth="100%"
+                                    rotateAmplitude={15}
+                                    scaleOnHover={1.1}
+                                    showMobileWarning={false}
+                                    showTooltip
+                                    displayOverlayContent
+                                    overlayContent={
+                                        <div className="p-4 bg-black/60 backdrop-blur-md rounded-xl border border-white/10 shadow-2xl">
+                                            <p className="text-[#ff2e63] font-black text-xs tracking-[0.2em] uppercase mb-1">
+                                                Currently Pulsing
+                                            </p>
+                                            <p className="text-white font-bold text-sm">
+                                                Ujwal S - cook.exe
+                                            </p>
+                                        </div>
+                                    }
                                 />
                             </div>
 
@@ -136,7 +158,7 @@ export default function Home() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="text-xl md:text-3xl font-black leading-[0.9] tracking-tighter"
+                                className="text-3xl md:text-5xl lg:text-6xl font-black leading-[0.85] tracking-tighter"
                             >
                                 Hi, <br />
                                 I'm <span className="neon-text uppercase">UJWAL</span>
@@ -393,7 +415,13 @@ export default function Home() {
                             </div>
                             <div className="p-8">
                                 <h3 className="text-xl font-bold mb-3">{p.title}</h3>
-                                <p className="text-[#cbd5e1]/70 text-sm mb-6 pb-6 border-b border-white/10">{p.desc}</p>
+                                <p className="text-[#cbd5e1]/70 text-sm mb-4 pb-0">{p.desc}</p>
+                                {p.note && (
+                                    <p className="text-[10px] text-[#ff2e63] font-bold italic mb-6 pb-6 border-b border-white/10 uppercase tracking-wider">
+                                        CAUTION: {p.note}
+                                    </p>
+                                )}
+                                {!p.note && <div className="mb-6 pb-6 border-b border-white/10" />}
                                 <div className="flex items-center justify-between">
                                     <span className="text-[#ff2e63] font-bold text-sm tracking-tighter uppercase">{p.type || "Project"}</span>
                                     <a href={p.link} target="_blank" rel="noopener noreferrer">
